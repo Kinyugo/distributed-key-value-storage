@@ -7,8 +7,8 @@ defmodule KV.Registry do
   @doc """
   Starts the registry.
   """
-  def start_link(_opts) do
-    GenServer.start_link(__MODULE__, :ok)
+  def start_link(opts) do
+    GenServer.start_link(__MODULE__, :ok, opts)
   end
 
   @spec lookup(atom | pid | {atom, any} | {:via, atom, any}, any) :: any
