@@ -16,3 +16,12 @@ import Config
 #       format: "$date $time [$level] $metadata$message\n",
 #       metadata: [:user_id]
 #
+
+config :kv, routing_table: [{?a..?z, node()}]
+
+if Mix.env() == :prod do
+  config :kv, :routing_table, [
+    {?a..?m, :"foo@kyde-maina"},
+    {?n..?z, :"bar@kyde-maina"}
+  ]
+end
