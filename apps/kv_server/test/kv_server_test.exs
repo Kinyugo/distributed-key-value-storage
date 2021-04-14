@@ -16,6 +16,7 @@ defmodule KVServerTest do
     %{socket: socket}
   end
 
+  @tag :distributed
   test "server interaction", %{socket: socket} do
     assert send_and_receive(socket, "UNKOWN shopping\r\n") == "UNKOWN COMMAND\r\n"
 
